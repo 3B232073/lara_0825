@@ -18,3 +18,13 @@ Route::get('//save-post', function () {
 
     return "save() 已新增一筆資料！";
 });
+
+Route::get('//create-post', function () {
+    Post::create([
+        'title' => 'create title',
+        'content' => 'create content',
+        'is_feature' => false
+    ]);
+
+    return "create() 已新增一筆貼文！";
+});
