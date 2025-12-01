@@ -108,3 +108,8 @@ Route::get('/destroy-multi', function () {
 
     return "destroy() 已刪除 id = 3,5,7 的貼文";
 });
+
+Route::get('/posts-collection-all', function () {
+    $allPosts = Post::all();   // 多筆資料 → Collection
+    dd($allPosts);
+});
