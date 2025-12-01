@@ -83,3 +83,28 @@ Route::get('/save-post', function () {
 
     return "save() 已更新 id=1 的貼文！";
 });
+
+Route::get('/delete-post', function () {
+
+    $post = Post::find(1);   // 找 id = 1
+    if ($post) {
+        $post->delete();     // 刪除
+        return "delete() 已刪除 id = 1 的貼文";
+    }
+
+    return "找不到 id = 1 的貼文";
+});
+
+Route::get('/destroy-post', function () {
+
+    Post::destroy(2);   // 刪除 id = 2
+
+    return "destroy() 已刪除 id = 2 的貼文";
+});
+
+Route::get('/destroy-multi', function () {
+
+    Post::destroy([3, 5, 7]);   // 刪除 id 3、5、7
+
+    return "destroy() 已刪除 id = 3,5,7 的貼文";
+});
