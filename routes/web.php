@@ -128,3 +128,20 @@ Route::get('/posts-single-first', function () {
     $lastPost = Post::orderBy('id', 'DESC')->first(); // 單筆 → Model object
     dd($lastPost);
 });
+
+Route::get('/post-with-comments', function () {
+
+    $post = Post::find(6); // 找 id=6 的貼文（你可改成你有留言的貼文）
+
+    echo '標題：'.$post->title.'<br>';
+    echo '內容：'.$post->content.'<br><hr>';
+
+    // 這裡抓出所有留言（是 Collection）
+    $comments = $post->comments;
+
+    foreach ($comments as $comment) {
+        echo '留言：' . $comment->content . '<br>';
+    }
+
+    dd($comments);  // 測試用
+});
