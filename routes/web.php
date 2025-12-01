@@ -59,3 +59,15 @@ Route::get('//posts-condition', function () {
 
     dd($posts); // dump 出符合條件的所有貼文
 });
+
+Route::get('/update-post', function () {
+
+    $post = Post::find(1);  // 找 id = 1 的那篇文章
+
+    $post->update([
+        'title' => 'updated title',
+        'content' => 'updated content',
+    ]);
+
+    return "update() 已更新 id=1 的貼文！";
+});
