@@ -37,3 +37,25 @@ Route::get('//posts-find', function () {
 
     dd($post); // dump 出該筆貼文
 });
+
+Route::get('/posts-all', function () {
+    $posts = Post::all();  // 取出所有貼文
+
+    foreach ($posts as $post) {
+        echo '編號：' . $post->id . '<br>';
+        echo '標題：' . $post->title . '<br>';
+        echo '內容：' . $post->content . '<br>';
+        echo '張貼時間：' . $post->created_at . '<br>';
+        echo '<hr>';
+    }
+
+    dd($posts); // 將所有資料結構 dump 出來
+});
+
+Route::get('//posts-condition', function () {
+    $posts = Post::where('id', '<', 10)
+                 ->orderBy('id', 'DESC')
+                 ->get();
+
+    dd($posts); // dump 出符合條件的所有貼文
+});
