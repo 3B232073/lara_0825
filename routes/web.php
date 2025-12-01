@@ -28,3 +28,12 @@ Route::get('//create-post', function () {
 
     return "create() 已新增一筆貼文！";
 });
+
+Route::get('//posts-find', function () {
+    $post = Post::find(1); // 找 id=1 的貼文
+
+    echo '標題：' . $post->title . '<br>';
+    echo '內容：' . $post->content . '<br>';
+
+    dd($post); // dump 出該筆貼文
+});
