@@ -113,3 +113,8 @@ Route::get('/posts-collection-all', function () {
     $allPosts = Post::all();   // 多筆資料 → Collection
     dd($allPosts);
 });
+
+Route::get('/posts-featured', function () {
+    $featuredPosts = Post::where('is_feature', 1)->get();  // 多筆 → Collection
+    dd($featuredPosts);
+});
