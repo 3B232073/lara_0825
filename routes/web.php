@@ -118,3 +118,8 @@ Route::get('/posts-featured', function () {
     $featuredPosts = Post::where('is_feature', 1)->get();  // 多筆 → Collection
     dd($featuredPosts);
 });
+
+Route::get('/posts-single-find', function () {
+    $fourthPost = Post::find(4);   // 單筆 → Model object
+    dd($fourthPost);
+});
