@@ -71,3 +71,15 @@ Route::get('/update-post', function () {
 
     return "update() 已更新 id=1 的貼文！";
 });
+
+Route::get('/save-post', function () {
+
+    $post = Post::find(1);  // 找 id = 1 的貼文
+
+    $post->title = 'saved title';
+    $post->content = 'saved content';
+
+    $post->save();  // 儲存更新
+
+    return "save() 已更新 id=1 的貼文！";
+});
