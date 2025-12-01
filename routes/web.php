@@ -123,3 +123,8 @@ Route::get('/posts-single-find', function () {
     $fourthPost = Post::find(4);   // 單筆 → Model object
     dd($fourthPost);
 });
+
+Route::get('/posts-single-first', function () {
+    $lastPost = Post::orderBy('id', 'DESC')->first(); // 單筆 → Model object
+    dd($lastPost);
+});
