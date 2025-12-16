@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(
-            PostSeeder::class,
-        );
+        Post::factory(10)
+            ->hasComments(3)
+            ->create();
 
         User::factory()->create([
             'name' => 'Test User',
